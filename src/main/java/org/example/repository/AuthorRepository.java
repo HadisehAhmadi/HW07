@@ -18,7 +18,6 @@ public class AuthorRepository {
     }
 
     public void save(Auther auther) throws Exception
-
     {
         preparedStatement=connection.prepareStatement("insert into auther values (?,?,?,?);");
         preparedStatement.setInt(1,auther.getId());
