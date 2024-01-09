@@ -27,6 +27,22 @@ public class AuthorRepository {
         preparedStatement.setInt(4,auther.getAge());
         preparedStatement.executeUpdate();
         preparedStatement.close();
-        System.out.println("Auther Saved Successfully");
+    }
+
+    public Auther load (int autherID) throws Exception{
+        Auther auther=new Auther();
+        preparedStatement=connection.prepareStatement("select * from auther where id=?");
+        preparedStatement.setInt(1,autherID);
+        resultSet=preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            auther.setId(Integer.parseInt(resultSet.getString("id")));
+            auther.setName(resultSet.getString("name"));
+            auther.setFamily(resultSet.getString("family"));
+            auther.setAge(Integer.parseInt(resultSet.getString("age")));
+        }
+        resultSet.close();
+        preparedStatement.close();
+        System.out.println(auther);
+        return auther;
     }
 }
