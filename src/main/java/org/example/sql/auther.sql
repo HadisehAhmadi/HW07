@@ -25,5 +25,6 @@ select * from authers_books;
 
 select name,family,title from authers_books
                 inner join auther a on autherID = a.id
-                inner join book b on bookID = b.id;
+                inner join book b on bookID = b.id
+where name='Leo';
 
