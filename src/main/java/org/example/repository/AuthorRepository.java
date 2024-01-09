@@ -25,6 +25,7 @@ public class AuthorRepository {
         preparedStatement.setString(2, auther.getName());
         preparedStatement.setString(3, auther.getFamily());
         preparedStatement.setInt(4,auther.getAge());
+        preparedStatement.executeUpdate();
         preparedStatement.close();
         System.out.println("Auther Saved Successfully");
     }
