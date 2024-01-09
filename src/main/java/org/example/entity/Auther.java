@@ -7,7 +7,7 @@ public class Auther {
     private String name;
     private String family;
     private int age;
-    private WrittenBooks[] writtenBooks;
+    private Book[] writtenBooks;
 
     public Auther(int id, String name, String family, int age) {
         this.id = id;
@@ -62,11 +62,11 @@ public class Auther {
         this.age = age;
     }
 
-    public WrittenBooks[] getWrittenBooks() {
+    public Book[] getWrittenBooks() {
         return writtenBooks;
     }
 
-    public void setWrittenBooks(WrittenBooks[] writtenBooks) {
+    public void setWrittenBooks(Book[] writtenBooks) {
         this.writtenBooks = writtenBooks;
     }
 }
