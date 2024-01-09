@@ -23,7 +23,7 @@ select * from auther;
 select * from book;
 select * from authers_books;
 
-select name,title from authers_books
+select name,family,title from authers_books
                 inner join auther a on autherID = a.id
                 inner join book b on bookID = b.id;
 
