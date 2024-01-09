@@ -16,6 +16,9 @@ public class Auther {
         this.age = age;
     }
 
+    public Auther() {
+    }
+
     @Override
     public String toString() {
         return "Auther{" +
