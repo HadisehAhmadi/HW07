@@ -21,7 +21,5 @@ public class AutherService {
     public void register (String name,String family,int age) throws Exception{
         Auther auther = new Auther(name,family,age);
         AuthorRepository authorRepository = new AuthorRepository();
-        authorRepository.save(auther);
-        System.out.println("Auther saved SUCCESSFULLY! "+auther.toString());
-    }
+        authorRepository.save(auther);}
 }

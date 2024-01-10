@@ -25,6 +25,7 @@ public class BookRepository {
         preparedStatement.setInt(3,book.getAutherID());
         preparedStatement.executeUpdate();
         preparedStatement.close();
+        System.out.println("Book save SUCCESSFULLY "+book.toString());
     }
 
     public Book load (int bookID) throws Exception{

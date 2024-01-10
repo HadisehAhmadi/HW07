@@ -21,6 +21,5 @@ public class BookService {
         Book book = new Book(title, year, autherID);
        BookRepository bookRepository = new BookRepository();
         bookRepository.save(book);
-        System.out.println("Book saved SUCCESSFULLY! " + book.toString());
     }
 }

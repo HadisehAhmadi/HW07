@@ -1,11 +1,9 @@
 package org.example.repository;
 
 import org.example.entity.Auther;
+import org.example.entity.Book;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class AuthorRepository {
     private Connection connection;
@@ -25,6 +23,7 @@ public class AuthorRepository {
         preparedStatement.setInt(3,auther.getAge());
         preparedStatement.executeUpdate();
         preparedStatement.close();
+        System.out.println("Auther save SUCCESSFULLY "+auther.toString());
     }
 
     public Auther load (int autherID) throws Exception{
@@ -40,7 +39,24 @@ public class AuthorRepository {
         }
         resultSet.close();
         preparedStatement.close();
-        System.out.println(auther);
+        System.out.println("This auther loaded: " +auther);
         return auther;
+    }
+
+    public void writtenBooks(int autherID) throws Exception{
+        AuthorRepository authorRepository = new AuthorRepository();
+        Auther auther = authorRepository.load(autherID);
+        Book[] books=new Book[3];
+        BookRepository bookRepository = new BookRepository();
+
+        int counter=0;
+        preparedStatement = connection.prepareStatement("select book.id from book inner join auther a on book.autherID = a.id where autherID = ?;");
+        preparedStatement.setInt(1,autherID);
+        resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()){
+            books[counter]=bookRepository.load(resultSet.getInt("id"));
+            counter++;
+        }
+        auther.setWrittenBooks(books);
     }
 }

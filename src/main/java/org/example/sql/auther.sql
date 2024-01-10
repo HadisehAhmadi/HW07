@@ -44,4 +44,6 @@ from auther
          inner join book b on auther.id = b.autherID
 where name = 'Leo';
 
+select book.id from book inner join auther a on book.autherID = a.id where autherID =1;
 
+delete from auther where id=11;
