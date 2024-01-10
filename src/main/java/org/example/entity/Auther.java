@@ -9,8 +9,7 @@ public class Auther {
     private int age;
     private Book[] writtenBooks;
 
-    public Auther(int id, String name, String family, int age) {
-        this.id = id;
+    public Auther(String name, String family, int age) {
         this.name = name;
         this.family = family;
         this.age = age;

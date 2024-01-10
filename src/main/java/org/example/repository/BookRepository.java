@@ -19,11 +19,10 @@ public class BookRepository {
     }
 
     public void save(Book book) throws Exception {
-        preparedStatement=connection.prepareStatement("insert into book values (?,?,?,?);");
-        preparedStatement.setInt(1,book.getId());
-        preparedStatement.setString(2, book.getTitle());
-        preparedStatement.setInt(3, book.getYear());
-        preparedStatement.setInt(4,book.getAutherID());
+        preparedStatement=connection.prepareStatement("insert into book values (DEFAULT,?,?,?);");
+        preparedStatement.setString(1, book.getTitle());
+        preparedStatement.setInt(2, book.getYear());
+        preparedStatement.setInt(3,book.getAutherID());
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }

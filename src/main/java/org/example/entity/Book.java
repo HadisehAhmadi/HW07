@@ -6,8 +6,8 @@ public class Book {
     private int year;
     private int autherID;
 
-    public Book(int id, String title, int year) {
-        this.id = id;
+    public Book(String title, int year,int autherID) {
+        this.autherID= autherID;
         this.title = title;
         this.year = year;
     }

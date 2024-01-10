@@ -19,11 +19,10 @@ public class AuthorRepository {
 
     public void save(Auther auther) throws Exception
     {
-        preparedStatement=connection.prepareStatement("insert into auther values (?,?,?,?);");
-        preparedStatement.setInt(1,auther.getId());
-        preparedStatement.setString(2, auther.getName());
-        preparedStatement.setString(3, auther.getFamily());
-        preparedStatement.setInt(4,auther.getAge());
+        preparedStatement=connection.prepareStatement("insert into auther values (DEFAULT,?,?,?);");
+        preparedStatement.setString(1, auther.getName());
+        preparedStatement.setString(2, auther.getFamily());
+        preparedStatement.setInt(3,auther.getAge());
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }
