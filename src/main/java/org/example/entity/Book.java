@@ -4,6 +4,7 @@ public class Book {
     private int id;
     private String title;
     private int year;
+    private int autherID;
 
     public Book(int id, String title, int year) {
         this.id = id;
@@ -11,8 +12,7 @@ public class Book {
         this.year = year;
     }
 
-    public Book() {
-    }
+    public Book() {}
 
     @Override
     public String toString() {
@@ -20,6 +20,7 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", year=" + year +
+                ", autherID=" + autherID +
                 '}';
     }
 
@@ -45,5 +46,13 @@ public class Book {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public int getAutherID() {
+        return autherID;
+    }
+
+    public void setAutherID(int autherID) {
+        this.autherID = autherID;
     }
 }
