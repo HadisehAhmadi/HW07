@@ -19,10 +19,11 @@ public class BookRepository {
     }
 
     public void save(Book book) throws Exception {
-        preparedStatement=connection.prepareStatement("insert into book values (?,?,?);");
+        preparedStatement=connection.prepareStatement("insert into book values (?,?,?,?);");
         preparedStatement.setInt(1,book.getId());
         preparedStatement.setString(2, book.getTitle());
         preparedStatement.setInt(3, book.getYear());
+        preparedStatement.setInt(4,book.getAutherID());
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }
@@ -36,6 +37,7 @@ public class BookRepository {
             book.setId(Integer.parseInt(resultSet.getString("id")));
             book.setTitle(resultSet.getString("title"));
             book.setYear(Integer.parseInt(resultSet.getString("year")));
+            book.setAutherID(Integer.parseInt(resultSet.getString("autherID")));
         }
         resultSet.close();
         preparedStatement.close();
